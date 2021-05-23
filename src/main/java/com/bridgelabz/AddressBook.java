@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class AddressBook {
     ArrayList<Contact> contact = new ArrayList<>();
+    Scanner sc = new Scanner(System.in);
      void createPerson(){
         Contact contact1 = new Contact();
         Scanner sc = new Scanner(System.in);
@@ -26,11 +27,48 @@ public class AddressBook {
         System.out.println("Added Successfully.");
         contact.add(contact1);
         System.out.println(contact);
-        Display();
     }
     public void Display(){
         for(Contact c : contact){
             System.out.println(c);
+        }
+    }
+    public void UpdatePerson(String name,String u)
+    {
+        int flag=0;
+        for(Contact c : contact)
+        {
+            if(c.firstName.equals(name))
+            {
+                flag=1;
+                switch (u)
+                {
+                    case "city":
+                        System.out.println("Enter Your city Name");
+                        c.city=sc.nextLine();
+                        break;
+                    case "state":
+                        System.out.println("Enter Your state Name");
+                        c.state=sc.nextLine();
+                        break;
+                    case "phone":
+                        System.out.println("Enter Your phone Number");
+                        c.phoneNo=sc.nextLine();
+                        break;
+                    case "zip":
+                        System.out.println("Enter Your zip");
+                        c.zip=sc.nextInt();
+                        break;
+                }
+            }
+        }
+        if(flag==0)
+        {
+            System.out.println("Not Found");
+        }
+        else
+        {
+            System.out.println("Update Successfully");
         }
     }
 }
