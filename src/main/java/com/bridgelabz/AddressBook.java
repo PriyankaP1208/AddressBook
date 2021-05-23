@@ -2,10 +2,9 @@ package com.bridgelabz;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 public class AddressBook {
-    public void createPerson(){
-        ArrayList<Contact> contact = new ArrayList<>();
+    ArrayList<Contact> contact = new ArrayList<>();
+     void createPerson(){
         Contact contact1 = new Contact();
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter first name:");
@@ -26,6 +25,13 @@ public class AddressBook {
         contact1.zip = sc.nextInt();
         System.out.println("Added Successfully.");
         contact.add(contact1);
+        System.out.println(contact);
+        Display();
+    }
+    public void Display(){
+        for(Contact c : contact){
+            System.out.println(c);
+        }
     }
 }
 

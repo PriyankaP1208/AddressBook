@@ -73,5 +73,19 @@ public class Contact {
     public void setMailId(String mailId) {
         this.mailId = mailId;
     }
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zip=" + zip +
+                ", phoneNo='" + phoneNo + '\'' +
+                ", mailId='" + mailId + '\'' +
+                '}';
+        }
 }
 
