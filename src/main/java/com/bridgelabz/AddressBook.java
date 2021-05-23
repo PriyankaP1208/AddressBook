@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 public class AddressBook {
     ArrayList<Contact> contact = new ArrayList<>();
@@ -74,6 +75,28 @@ public class AddressBook {
         else
         {
             System.out.println("Update Successfully");
+        }
+    }
+    public void DeletePerson(String name)
+    {
+        int flag=0;
+        Iterator<Contact> itr=contact.iterator();
+        while(itr.hasNext())
+        {
+            Contact a=itr.next();
+            if(a.firstName.equals(name))
+            {
+                flag=1;
+                itr.remove();
+            }
+        }
+        if(flag==0)
+        {
+            System.out.println("Not Found");
+        }
+        else
+        {
+            System.out.println("Delete Successfully");
         }
     }
 }

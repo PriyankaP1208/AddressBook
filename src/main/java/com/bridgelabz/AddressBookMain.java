@@ -8,7 +8,7 @@ public class AddressBookMain {
         AddressBook addressBook = new AddressBook();
         Scanner scanner=new Scanner(System.in);
         while (choice != 0) {
-            System.out.println("1.Add Person\n 2.Edit contact \n 3.Display");
+            System.out.println("1.Add Person\n 2.Edit contact \n 3.Display \n 4.Delete");
             System.out.println("Enter Your Choice");
             choice = scanner.nextInt();
             switch (choice) {
@@ -25,6 +25,11 @@ public class AddressBookMain {
                     break;
                 case 3:
                     addressBook.Display();
+                    break;
+                case 4:
+                    System.out.println("Enter name to Delete");
+                    String n=scanner.next();
+                    addressBook.DeletePerson(n);
                     break;
 
             }
