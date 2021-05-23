@@ -43,6 +43,10 @@ public class AddressBook {
                 flag=1;
                 switch (u)
                 {
+                    case "address":
+                        System.out.println("Enter Your address");
+                        c.address=sc.nextLine();
+                        break;
                     case "city":
                         System.out.println("Enter Your city Name");
                         c.city=sc.nextLine();
@@ -59,6 +63,7 @@ public class AddressBook {
                         System.out.println("Enter Your zip");
                         c.zip=sc.nextInt();
                         break;
+
                 }
             }
         }

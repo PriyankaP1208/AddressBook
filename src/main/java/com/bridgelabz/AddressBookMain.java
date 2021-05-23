@@ -16,6 +16,7 @@ public class AddressBookMain {
                     addressBook.createPerson();
                     break;
                 case 2:
+                    addressBook.Display();
                     System.out.println("Enter name to Update");
                     String name=scanner.next();
                     System.out.println("Enter what to update");
