@@ -29,12 +29,12 @@ public class AddressBook {
         contact.add(contact1);
         System.out.println(contact);
     }
-    public void Display(){
+    public void display(){
         for(Contact c : contact){
             System.out.println(c);
         }
     }
-    public void UpdatePerson(String name,String u)
+    public void updatePerson(String name,String u)
     {
         int flag=0;
         for(Contact c : contact)
@@ -77,7 +77,7 @@ public class AddressBook {
             System.out.println("Update Successfully");
         }
     }
-    public void DeletePerson(String name)
+    public void deletePerson(String name)
     {
         int flag=0;
         Iterator<Contact> itr=contact.iterator();
