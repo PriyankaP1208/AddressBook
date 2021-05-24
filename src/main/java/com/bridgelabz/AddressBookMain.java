@@ -8,8 +8,8 @@ public class AddressBookMain {
         AddressBook addressBook = new AddressBook();
         Scanner scanner=new Scanner(System.in);
         while (choice != 0) {
-            System.out.println(" 1.Add Person\n 2.Edit contact \n 3.Display \n 4.Delete " +
-                    "");
+            System.out.println(" 1.Add Person\n 2.Edit contact \n 3.Display \n 4.Delete  \n" +
+                    " 5.Add multiple contacts");
             System.out.println("Enter Your Choice");
             choice = scanner.nextInt();
             switch (choice) {
@@ -31,6 +31,15 @@ public class AddressBookMain {
                     System.out.println("Enter name to Delete");
                     String n=scanner.next();
                     addressBook.deletePerson(n);
+                    break;
+                case 5:
+                    int personCount;
+                    System.out.println("Enter Number of persons:");
+                    personCount=scanner.nextInt();
+                    for(int i=0;i<personCount;i++)
+                    {
+                        addressBook.createPerson();
+                    }
                     break;
                 default:
                     System.out.println("Wrong choice");

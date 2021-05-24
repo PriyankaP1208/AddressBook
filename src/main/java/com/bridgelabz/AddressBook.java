@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class AddressBook {
     ArrayList<Contact> contact = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
+
+    //Create new person in AddressBook
      void createPerson(){
         Contact contact1 = new Contact();
         Scanner sc = new Scanner(System.in);
@@ -29,11 +31,15 @@ public class AddressBook {
         contact.add(contact1);
         System.out.println(contact);
     }
+
+    //Display all data in AddressBook
     public void display(){
         for(Contact c : contact){
             System.out.println(c);
         }
     }
+
+    //Update person contact in AddressBook
     public void updatePerson(String name,String u)
     {
         int flag=0;
@@ -64,7 +70,6 @@ public class AddressBook {
                         System.out.println("Enter Your zip");
                         c.zip=sc.nextInt();
                         break;
-
                 }
             }
         }
@@ -77,6 +82,8 @@ public class AddressBook {
             System.out.println("Update Successfully");
         }
     }
+
+    //Update person contact in AddressBook
     public void deletePerson(String name)
     {
         int flag=0;
