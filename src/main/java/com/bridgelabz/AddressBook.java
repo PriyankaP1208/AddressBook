@@ -4,37 +4,52 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 public class AddressBook {
-    ArrayList<Contact> contact = new ArrayList<>();
+    public static ArrayList<Contact> contact = new ArrayList<>();
+   // ArrayList<Contact> contact = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
     //Create new person in AddressBook
-     void createPerson(){
+    public void createPerson()
+    {
+        boolean status;
         Contact contact1 = new Contact();
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter first name:");
-        contact1.firstName = sc.nextLine();
-        System.out.println("Enter last name:");
-        contact1.lastName = sc.nextLine();
-        System.out.println("Enter address:");
-        contact1.address = sc.nextLine();
-        System.out.println("Enter city:");
-        contact1.city = sc.nextLine();
-        System.out.println("Enter state:");
-        contact1.state = sc.nextLine();
-        System.out.println("Enter phone number:");
-        contact1.phoneNo = sc.nextLine();
-        System.out.println("Enter email id:");
-        contact1.mailId = sc.nextLine();
-        System.out.println("Enter zip:");
-        contact1.zip = sc.nextInt();
-        System.out.println("Added Successfully.");
-        contact.add(contact1);
-        System.out.println(contact);
+        String firstName = sc.nextLine();
+        status=checkDuplicates(firstName, contact); //Checking Duplicates
+        if (!status)
+        {
+            contact1.firstName=firstName;
+            System.out.println("Enter last name:");
+            contact1.lastName = sc.nextLine();
+            System.out.println("Enter address:");
+            contact1.address = sc.nextLine();
+            System.out.println("Enter city:");
+            contact1.city = sc.nextLine();
+            System.out.println("Enter state:");
+            contact1.state = sc.nextLine();
+            System.out.println("Enter phone number:");
+            contact1.phoneNo = sc.nextLine();
+            System.out.println("Enter email id:");
+            contact1.mailId = sc.nextLine();
+            System.out.println("Enter zip:");
+            contact1.zip = sc.nextInt();
+            System.out.println("Added Successfully.");
+            contact.add(contact1);
+            System.out.println(contact);
+        }
+        else {
+            System.out.println("User already present");
+            createPerson();
+        }
+
     }
 
     //Display all data in AddressBook
-    public void display(){
-        for(Contact c : contact){
+    public void display()
+    {
+        for(Contact c : contact)
+        {
             System.out.println(c);
         }
     }
@@ -105,6 +120,18 @@ public class AddressBook {
         {
             System.out.println("Delete Successfully");
         }
+    }
+
+    //Checking duplicate entries
+    public boolean checkDuplicates(String name, ArrayList<Contact> personList)
+    {
+        for (Contact cn : personList) {
+            if (cn.getFirstName().equals(name)) {
+                System.out.println("Person Already Present");
+                return true;
+            }
+        }
+        return false;
     }
 }
 
