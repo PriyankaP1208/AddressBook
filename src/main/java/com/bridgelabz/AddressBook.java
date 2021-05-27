@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 public class AddressBook {
     public static ArrayList<Contact> contact = new ArrayList<>();
-   // ArrayList<Contact> contact = new ArrayList<>();
+    // ArrayList<Contact> contact = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
     //Create new person in AddressBook
@@ -19,7 +19,7 @@ public class AddressBook {
         status=checkDuplicates(firstName, contact); //Checking Duplicates
         if (!status)
         {
-            contact1.firstName=firstName;
+            contact1.firstName = firstName;
             System.out.println("Enter last name:");
             contact1.lastName = sc.nextLine();
             System.out.println("Enter address:");
@@ -42,7 +42,6 @@ public class AddressBook {
             System.out.println("User already present");
             createPerson();
         }
-
     }
 
     //Display all data in AddressBook
@@ -57,38 +56,38 @@ public class AddressBook {
     //Update person contact in AddressBook
     public void updatePerson(String name,String u)
     {
-        int flag=0;
+        int flag = 0;
         for(Contact c : contact)
         {
             if(c.firstName.equals(name))
             {
-                flag=1;
+                flag = 1;
                 switch (u)
                 {
                     case "address":
                         System.out.println("Enter Your address");
-                        c.address=sc.nextLine();
+                        c.address = sc.nextLine();
                         break;
                     case "city":
                         System.out.println("Enter Your city Name");
-                        c.city=sc.nextLine();
+                        c.city = sc.nextLine();
                         break;
                     case "state":
                         System.out.println("Enter Your state Name");
-                        c.state=sc.nextLine();
+                        c.state = sc.nextLine();
                         break;
                     case "phone":
                         System.out.println("Enter Your phone Number");
-                        c.phoneNo=sc.nextLine();
+                        c.phoneNo = sc.nextLine();
                         break;
                     case "zip":
                         System.out.println("Enter Your zip");
-                        c.zip=sc.nextInt();
+                        c.zip = sc.nextInt();
                         break;
                 }
             }
         }
-        if(flag==0)
+        if(flag == 0)
         {
             System.out.println("Not Found");
         }
@@ -101,18 +100,18 @@ public class AddressBook {
     //Update person contact in AddressBook
     public void deletePerson(String name)
     {
-        int flag=0;
+        int flag = 0;
         Iterator<Contact> itr=contact.iterator();
         while(itr.hasNext())
         {
-            Contact a=itr.next();
+            Contact a = itr.next();
             if(a.firstName.equals(name))
             {
-                flag=1;
+                flag = 1;
                 itr.remove();
             }
         }
-        if(flag==0)
+        if(flag == 0)
         {
             System.out.println("Not Found");
         }
@@ -127,7 +126,7 @@ public class AddressBook {
     {
         for (Contact cn : personList) {
             if (cn.getFirstName().equals(name)) {
-                System.out.println("Person Already Present");
+                //System.out.println("Person Already Present");
                 return true;
             }
         }
