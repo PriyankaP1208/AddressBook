@@ -15,7 +15,7 @@ public class AddressBook {
         boolean status;
         Contact contact1 = new Contact();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter first name:");
+        System.out.println("\nEnter first name:");
         String firstName = sc.nextLine();
         status=checkDuplicates(firstName, contact); //Checking Duplicates
         if (!status)
@@ -37,7 +37,6 @@ public class AddressBook {
             contact1.zip = sc.nextInt();
             System.out.println("Added Successfully.");
             contact.add(contact1);
-            System.out.println(contact);
         }
         else {
             System.out.println("User already present");
@@ -140,6 +139,18 @@ public class AddressBook {
         for (Contact cn : contact)
         {
             if(name.equals(cn.firstName))
+            {
+                System.out.println(cn.toString());
+            }
+        }
+    }
+
+    //Search by city
+    public void searchByCity(String city1)
+    {
+        for (Contact cn : contact)
+        {
+            if(city1.equals(cn.city))
             {
                 System.out.println(cn.toString());
             }

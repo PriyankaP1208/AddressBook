@@ -8,8 +8,8 @@ public class AddressBookMain {
         AddressBook addressBook = new AddressBook();
         Scanner scanner = new Scanner(System.in);
         while (choice != 0) {
-            System.out.println(" 1.Add Person\n 2.Edit contact \n 3.Display \n 4.Delete  \n" +
-                    " 5.Add multiple contacts \n 6.Search by name");
+            System.out.println("\n 1.Add Person\n 2.Edit contact \n 3.Display \n 4.Delete  \n" +
+                    " 5.Add multiple contacts \n 6.Search by name \n 7.Search by city");
             System.out.println("Enter Your Choice");
             choice = scanner.nextInt();
             switch (choice) {
@@ -45,6 +45,11 @@ public class AddressBookMain {
                     System.out.println("Enter name:");
                     String name1 = scanner.next();
                     addressBook.searchByName(name1);
+                    break;
+                case 7:
+                    System.out.println("Enter city:");
+                    String city1 = scanner.next();
+                    addressBook.searchByCity(city1);
                     break;
                 default:
                     System.out.println("Wrong choice");
