@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.Scanner;
 public class AddressBook {
@@ -131,6 +132,18 @@ public class AddressBook {
             }
         }
         return false;
+    }
+
+    //Search by name
+    public void searchByName(String name)
+    {
+        for (Contact cn : contact)
+        {
+            if(name.equals(cn.firstName))
+            {
+                System.out.println(cn.toString());
+            }
+        }
     }
 }
 

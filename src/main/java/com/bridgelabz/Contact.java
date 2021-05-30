@@ -1,5 +1,7 @@
 package com.bridgelabz;
 
+import java.util.Comparator;
+
 public class Contact {
     String firstName;
     String lastName;
@@ -74,6 +76,7 @@ public class Contact {
         this.mailId = mailId;
     }
 
+
     @Override
     public String toString() {
         return
@@ -86,5 +89,6 @@ public class Contact {
                 ", phoneNo= " + phoneNo +
                 ", mailId= " + mailId ;
         }
+
 }
 
