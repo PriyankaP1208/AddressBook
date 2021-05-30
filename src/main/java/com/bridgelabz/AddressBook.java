@@ -182,6 +182,30 @@ public class AddressBook {
         }
         System.out.println("The Dictionary Contains:" + infoState);
     }
+    //Get count by city
+    public void viewCountByCity(String city1)
+    {
+        int count = 0;
+        for (Contact cn : contact)
+        {
+            if(city1.equals(cn.city))
+            {
+                count++;
+            }
+        }
+        System.out.println("Total person in city" + city1 + " is:" + count);
+    }
+
+    //Get count by state
+    public void viewCountByState(String state1) {
+        int count = 0;
+        for (Contact cn : contact) {
+            if (state1.equals(cn.state)) {
+                count++;
+            }
+        }
+        System.out.println("Total person in city" + state1 + " is:" + count);
+    }
 }
 
 
