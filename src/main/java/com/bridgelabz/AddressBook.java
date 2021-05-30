@@ -156,6 +156,17 @@ public class AddressBook {
             }
         }
     }
+
+    public void viewByState(String state1)
+    {
+        for (Contact cn : contact)
+        {
+            if(state1.equals(cn.state))
+            {
+                System.out.println(cn.toString());
+            }
+        }
+    }
 }
 
 
