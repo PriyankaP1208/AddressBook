@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 public class AddressBook {
     public static ArrayList<Contact> contact = new ArrayList<>();
+    Scanner scanner = new Scanner(System.in);
     // ArrayList<Contact> contact = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
@@ -157,6 +158,7 @@ public class AddressBook {
         }
     }
 
+    //View by state
     public void viewByState(String state1)
     {
         for (Contact cn : contact)
@@ -166,6 +168,31 @@ public class AddressBook {
                 System.out.println(cn.toString());
             }
         }
+    }
+
+    //Get count by city
+    public void viewCountByCity(String city1)
+    {
+        int count = 0;
+        for (Contact cn : contact)
+        {
+            if(city1.equals(cn.city))
+            {
+                count++;
+            }
+        }
+        System.out.println("Total person in city" + city1 + " is:" + count);
+    }
+
+    //Get count by state
+    public void viewCountByState(String state1) {
+        int count = 0;
+        for (Contact cn : contact) {
+            if (state1.equals(cn.state)) {
+                count++;
+            }
+        }
+        System.out.println("Total person in city" + state1 + " is:" + count);
     }
 }
 
