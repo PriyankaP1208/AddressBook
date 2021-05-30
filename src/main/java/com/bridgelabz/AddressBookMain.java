@@ -10,7 +10,7 @@ public class AddressBookMain {
         while (choice != 0) {
             System.out.println("\n 1.Add Person\n 2.Edit contact \n 3.Display \n 4.Delete  \n" +
                     " 5.Add multiple contacts \n 6.Search by name \n 7.Search by city \n" +
-                    "8.View by city");
+                    " 8.View by city \n 9.View by state");
             System.out.println("Enter Your Choice");
             choice = scanner.nextInt();
             switch (choice) {
@@ -53,9 +53,14 @@ public class AddressBookMain {
                     addressBook.searchByCity(city1);
                     break;
                 case 8:
+                    System.out.println("Enter city:");
+                    String city = scanner.next();
+                    addressBook.viewByCity(city);
+                    break;
+                case 9:
                     System.out.println("Enter state:");
                     String state1 = scanner.next();
-                    addressBook.viewByState(state1);
+                    addressBook.viewByCity(state1);
                     break;
                 default:
                     System.out.println("Wrong choice");

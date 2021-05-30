@@ -1,9 +1,7 @@
 package com.bridgelabz;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.Scanner;
+import java.util.*;
+
 public class AddressBook {
     public static ArrayList<Contact> contact = new ArrayList<>();
     // ArrayList<Contact> contact = new ArrayList<>();
@@ -157,15 +155,32 @@ public class AddressBook {
         }
     }
 
-    public void viewByState(String state1)
+    //View by city
+    public void viewByCity(String city1)
     {
+        Dictionary infoCity = new Hashtable();
         for (Contact cn : contact)
         {
-            if(state1.equals(cn.state))
+            if(city1.equals(cn.city))
             {
-                System.out.println(cn.toString());
+                infoCity.put(city1 , cn.toString());
             }
         }
+        System.out.println("The Dictionary Contains:" + infoCity);
+    }
+
+    //View by state
+    public void viewByState(String state1)
+    {
+        Dictionary infoState = new Hashtable();
+        for (Contact cn : contact)
+        {
+            if(state1.equals(cn.city))
+            {
+                infoState.put(state1 , cn.toString());
+            }
+        }
+        System.out.println("The Dictionary Contains:" + infoState);
     }
 }
 
