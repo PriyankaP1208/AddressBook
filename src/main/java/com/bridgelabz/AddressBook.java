@@ -152,7 +152,7 @@ public class AddressBook {
         {
             if(city1.equals(cn.city))
             {
-                System.out.println(cn.toString());
+                System.out.println("Name is:" + cn.firstName);
             }
         }
     }
