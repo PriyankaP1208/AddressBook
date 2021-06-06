@@ -134,7 +134,7 @@ public class AddressBook {
     public void searchByName(String name)
     {
         List<Contact> streamList = contact.stream().filter(person1 -> name.equals(person1.getFirstName()) ).collect(Collectors.toList());
-        System.out.println("Persons in city: " + streamList);
+        System.out.println(streamList);
     }
 
     //Search by city
@@ -148,7 +148,7 @@ public class AddressBook {
     public void searchByState(String state1)
     {
         List<Contact> streamList = contact.stream().filter(person1 -> state1.equals(person1.getState()) ).collect(Collectors.toList());
-        System.out.println("Persons in city: " + streamList);
+        System.out.println("Persons in state: " + streamList);
     }
 
     //View by city
@@ -161,26 +161,22 @@ public class AddressBook {
         {
             if(city1.equals(cn.city))
             {
-                infoCity.put(cn.getCity(), city1);
+                infoCity.put(cn.city, city1);
             }
         }
-        System.out.println("Contacts in address book:" + infoCity);
     }
 
     //View by state
     public void viewByState(String state1)
     {
         List<Contact> streamList = contact.stream().filter(person1 -> state1.equals(person1.getState()) ).collect(Collectors.toList());
-        System.out.println("Persons in city: " + streamList);
+        System.out.println("Persons in state: " + streamList);
         Dictionary infoCity = new Hashtable();
-        for (Contact cn : contact)
-        {
-            if(state1.equals(cn.city))
-            {
-                infoCity.put(cn.getState(), state1);
+        for (Contact cn : contact) {
+            if (state1.equals(cn.city)) {
+                infoCity.put(cn.state, state1);
             }
         }
-        System.out.println("Contact in address book :" + infoCity);
     }
 
     //Get count by city
@@ -199,8 +195,23 @@ public class AddressBook {
     //Sort by name
     public void sortByName()
     {
-        List<Contact> nameSortedList=contact.stream().sorted((e1,e2)->e1.getFirstName().compareTo(e2.getFirstName())).collect(Collectors.toList());
-        System.out.println("Sorted Persons Alphabetically\n: "+nameSortedList);
+        List<Contact> nameSortedList = contact.stream().sorted((e1,e2)->e1.getFirstName().compareTo(e2.getFirstName())).collect(Collectors.toList());
+        System.out.println("Sorted successfully\n: "+ nameSortedList);
+    }
+
+    //Sort by city
+    public void sortByCity()
+    {
+        List<Contact> citySortedList = contact.stream().sorted((e1,e2)->e1.getCity().compareTo(e2.getCity())).collect(Collectors.toList());
+        System.out.println("Sorted successfully\n: "+ citySortedList);
+    }
+
+
+    //Sort by state
+    public void sortByState()
+    {
+        List<Contact> stateSortedList = contact.stream().sorted((e1,e2)->e1.getState().compareTo(e2.getState())).collect(Collectors.toList());
+        System.out.println("Sorted successfully\n: "+ stateSortedList);
     }
 }
 
