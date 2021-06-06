@@ -2,20 +2,28 @@ package com.bridgelabz;
 import java.util.Scanner;
 
 public class AddressBookMain {
+    static Scanner scanner = new Scanner(System.in);
+    static int choice = 1;
+    AddressBook addressBook = new AddressBook();
+
     public static void main(String args[]){
         System.out.println("Welcome to Address Book Program");
-        int choice = 1;
+        AddressBookMain addressBookMain = new AddressBookMain();
         AddressBook addressBook = new AddressBook();
-        Scanner scanner = new Scanner(System.in);
         while (choice != 0) {
             System.out.println("\n 1.Add Person\n 2.Edit contact \n 3.Display \n 4.Delete  \n" +
-                    " 5.Add multiple contacts \n 6.Search by name \n 7.Search by city \n" +
-                    " 8.View by city \n 9.View count by city \n 10.View count by state");
+                    " 5.Search contacts\n 6.View contacts\n 7.View count \n 8.Sort by name");
             System.out.println("Enter Your Choice");
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    addressBook.createPerson();
+                    int personCount;
+                    System.out.println("Enter Number of persons:");
+                    personCount = scanner.nextInt();
+                    for(int i = 0; i < personCount; i++)
+                    {
+                        addressBook.createPerson();
+                    }
                     break;
                 case 2:
                     addressBook.display();
@@ -34,42 +42,85 @@ public class AddressBookMain {
                     addressBook.deletePerson(n);
                     break;
                 case 5:
-                    int personCount;
-                    System.out.println("Enter Number of persons:");
-                    personCount = scanner.nextInt();
-                    for(int i = 0; i < personCount; i++)
-                    {
-                        addressBook.createPerson();
-                    }
+                    addressBookMain.search();
                     break;
                 case 6:
-                    System.out.println("Enter name:");
-                    String name1 = scanner.next();
-                    addressBook.searchByName(name1);
+                    addressBookMain.view();
                     break;
                 case 7:
-                    System.out.println("Enter city:");
-                    String city1 = scanner.next();
-                    addressBook.searchByCity(city1);
+                    addressBookMain.viewCount();
                     break;
                 case 8:
-                    System.out.println("Enter city:");
-                    String city = scanner.next();
-                    addressBook.viewByCity(city);
-                    break;
-                case 9:
-                    System.out.println("Enter city:");
-                    String city2 = scanner.next();
-                    addressBook.viewCountByCity(city2);
-                    break;
-                case 10:
-                    System.out.println("Enter state:");
-                    String state = scanner.next();
-                    addressBook.viewCountByState(state);
+                    addressBook.sortByName();
                     break;
                 default:
                     System.out.println("Wrong choice");
             }
+        }
+    }
+
+    public void search() {
+        System.out.println("\n 1.Search by name\n 2.Search by city\n 3.Search by state");
+        System.out.println("Enter Your Choice");
+        choice = scanner.nextInt();
+        switch (choice) {
+            case 1:
+                System.out.println("Enter name:");
+                String name1 = scanner.next();
+                addressBook.searchByName(name1);
+                break;
+            case 2:
+                System.out.println("Enter city:");
+                String city1 = scanner.next();
+                addressBook.searchByCity(city1);
+                break;
+            case 3:
+                System.out.println("Enter state:");
+                String state1 = scanner.next();
+                addressBook.searchByState(state1);
+                break;
+            default:
+                System.out.println("Wrong choice");
+        }
+    }
+
+    public void view(){
+        System.out.println("\n 1.View by city\n 2.View by state");
+        System.out.println("Enter Your Choice");
+        choice = scanner.nextInt();
+        switch (choice) {
+            case 1:
+                System.out.println("Enter city:");
+                String city = scanner.next();
+                addressBook.viewByCity(city);
+                break;
+            case 2:
+                System.out.println("Enter state:");
+                String state = scanner.next();
+                addressBook.viewByState(state);
+                break;
+            default:
+                System.out.println("Wrong choice");
+        }
+    }
+
+    public void viewCount(){
+        System.out.println("\n 1.View count by city\n 2.View count by state");
+        System.out.println("Enter Your Choice");
+        choice = scanner.nextInt();
+        switch (choice) {
+            case 1:
+                System.out.println("Enter city:");
+                String city = scanner.next();
+                addressBook.viewCountByCity(city);
+                break;
+            case 2:
+                System.out.println("Enter state:");
+                String state = scanner.next();
+                addressBook.viewCountByState(state);
+                break;
+            default:
+                System.out.println("Wrong choice");
         }
     }
 }

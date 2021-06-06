@@ -1,10 +1,10 @@
 package com.bridgelabz;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AddressBook {
     public static ArrayList<Contact> contact = new ArrayList<>();
-    // ArrayList<Contact> contact = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
     //Create new person in AddressBook
@@ -95,7 +95,7 @@ public class AddressBook {
         }
     }
 
-    //Update person contact in AddressBook
+    //Delete person contact in AddressBook
     public void deletePerson(String name)
     {
         int flag = 0;
@@ -124,7 +124,6 @@ public class AddressBook {
     {
         for (Contact cn : personList) {
             if (cn.getFirstName().equals(name)) {
-                //System.out.println("Person Already Present");
                 return true;
             }
         }
@@ -134,77 +133,74 @@ public class AddressBook {
     //Search by name
     public void searchByName(String name)
     {
-        for (Contact cn : contact)
-        {
-            if(name.equals(cn.firstName))
-            {
-                System.out.println(cn.toString());
-            }
-        }
+        List<Contact> streamList = contact.stream().filter(person1 -> name.equals(person1.getFirstName()) ).collect(Collectors.toList());
+        System.out.println("Persons in city: " + streamList);
     }
 
     //Search by city
     public void searchByCity(String city1)
     {
-        for (Contact cn : contact)
-        {
-            if(city1.equals(cn.city))
-            {
-                System.out.println("Name is:" + cn.firstName);
-            }
-        }
+        List<Contact> streamList = contact.stream().filter(person1 -> city1.equals(person1.getCity()) ).collect(Collectors.toList());
+        System.out.println("Persons in city: " + streamList);
+    }
+
+    //Search by state
+    public void searchByState(String state1)
+    {
+        List<Contact> streamList = contact.stream().filter(person1 -> state1.equals(person1.getState()) ).collect(Collectors.toList());
+        System.out.println("Persons in city: " + streamList);
     }
 
     //View by city
     public void viewByCity(String city1)
     {
+        List<Contact> streamList = contact.stream().filter(person1 -> city1.equals(person1.getCity()) ).collect(Collectors.toList());
+        System.out.println("Persons in city: " + streamList);
         Dictionary infoCity = new Hashtable();
         for (Contact cn : contact)
         {
             if(city1.equals(cn.city))
             {
-                infoCity.put(city1 , cn.toString());
+                infoCity.put(cn.getCity(), city1);
             }
         }
-        System.out.println("The Dictionary Contains:" + infoCity);
+        System.out.println("Contacts in address book:" + infoCity);
     }
 
     //View by state
     public void viewByState(String state1)
     {
-        Dictionary infoState = new Hashtable();
+        List<Contact> streamList = contact.stream().filter(person1 -> state1.equals(person1.getState()) ).collect(Collectors.toList());
+        System.out.println("Persons in city: " + streamList);
+        Dictionary infoCity = new Hashtable();
         for (Contact cn : contact)
         {
             if(state1.equals(cn.city))
             {
-                infoState.put(state1 , cn.toString());
+                infoCity.put(cn.getState(), state1);
             }
         }
-        System.out.println("The Dictionary Contains:" + infoState);
+        System.out.println("Contact in address book :" + infoCity);
     }
+
     //Get count by city
     public void viewCountByCity(String city1)
     {
-        int count = 0;
-        for (Contact cn : contact)
-        {
-            if(city1.equals(cn.city))
-            {
-                count++;
-            }
-        }
-        System.out.println("Total person in city" + city1 + " is:" + count);
+        int cnt= (int) contact.stream().filter(person1 -> city1.equals(person1.getCity()) ).count();
+        System.out.println("Total Person Count in " + city1 + " city is:" + cnt);
     }
 
     //Get count by state
     public void viewCountByState(String state1) {
-        int count = 0;
-        for (Contact cn : contact) {
-            if (state1.equals(cn.state)) {
-                count++;
-            }
-        }
-        System.out.println("Total person in city" + state1 + " is:" + count);
+        int cnt= (int) contact.stream().filter(person1 -> state1.equals(person1.getState()) ).count();
+        System.out.println("Total Person Count in " + state1 + " city is:" + cnt);
+    }
+
+    //Sort by name
+    public void sortByName()
+    {
+        List<Contact> nameSortedList=contact.stream().sorted((e1,e2)->e1.getFirstName().compareTo(e2.getFirstName())).collect(Collectors.toList());
+        System.out.println("Sorted Persons Alphabetically\n: "+nameSortedList);
     }
 }
 
