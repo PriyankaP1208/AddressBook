@@ -13,11 +13,13 @@ public class AddressBookMain {
         AddressBookFileIO addressBookFileIO = new AddressBookFileIO();
         AddressBook addressBook = new AddressBook();
         AddressBookCSVFile addressBookCSVFile = new AddressBookCSVFile();
+        AddressBookJSON addressBookJSON = new AddressBookJSON();
         while (choice != 0) {
             System.out.println("\n 1.Add Person\n 2.Edit contact\n 3.Display\n 4.Delete\n" +
                     " 5.Search contacts\n 6.View contacts\n 7.View count\n 8.Sort\n" +
                     " 9.Write data in txt file\n 10.Read data from txt file\n" +
-                     "11. Write data in CSV file\n 12.Read data from csv file");
+                     " 11. Write data in CSV file\n 12.Read data from csv file" +
+                    " 13.Write data in JSON file\n 14.Read data from JSON file");
             System.out.println("Enter Your Choice");
             choice = scanner.nextInt();
             switch (choice) {
@@ -69,6 +71,12 @@ public class AddressBookMain {
                     break;
                 case 12:
                     addressBookCSVFile.readData();
+                    break;
+                case 13:
+                    addressBookJSON.writeData();
+                    break;
+                case 14:
+                    addressBookJSON.readData();
                     break;
                 default:
                     System.out.println("Wrong choice");
