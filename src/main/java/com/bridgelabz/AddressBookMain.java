@@ -1,4 +1,5 @@
 package com.bridgelabz;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class AddressBookMain {
@@ -6,13 +7,15 @@ public class AddressBookMain {
     static int choice = 1;
     AddressBook addressBook = new AddressBook();
 
-    public static void main(String args[]){
+    public static void main(String args[]) throws Exception {
         System.out.println("Welcome to Address Book Program");
         AddressBookMain addressBookMain = new AddressBookMain();
+        AddressBookFileIO addressBookFileIO = new AddressBookFileIO();
         AddressBook addressBook = new AddressBook();
         while (choice != 0) {
-            System.out.println("\n 1.Add Person\n 2.Edit contact \n 3.Display \n 4.Delete  \n" +
-                    " 5.Search contacts\n 6.View contacts\n 7.View count \n 8.Sort");
+            System.out.println("\n 1.Add Person\n 2.Edit contact\n 3.Display\n 4.Delete\n" +
+                    " 5.Search contacts\n 6.View contacts\n 7.View count\n 8.Sort\n" +
+                    " 9.Write data in txt file\n 10.Read data from txt file");
             System.out.println("Enter Your Choice");
             choice = scanner.nextInt();
             switch (choice) {
@@ -52,6 +55,12 @@ public class AddressBookMain {
                     break;
                 case 8:
                     addressBookMain.sort();
+                    break;
+                case 9:
+                    addressBookFileIO.writeInfo();
+                    break;
+                case 10:
+                    addressBookFileIO.readData();
                     break;
                 default:
                     System.out.println("Wrong choice");
