@@ -12,10 +12,12 @@ public class AddressBookMain {
         AddressBookMain addressBookMain = new AddressBookMain();
         AddressBookFileIO addressBookFileIO = new AddressBookFileIO();
         AddressBook addressBook = new AddressBook();
+        AddressBookCSVFile addressBookCSVFile = new AddressBookCSVFile();
         while (choice != 0) {
             System.out.println("\n 1.Add Person\n 2.Edit contact\n 3.Display\n 4.Delete\n" +
                     " 5.Search contacts\n 6.View contacts\n 7.View count\n 8.Sort\n" +
-                    " 9.Write data in txt file\n 10.Read data from txt file");
+                    " 9.Write data in txt file\n 10.Read data from txt file\n" +
+                     "11. Write data in CSV file\n 12.Read data from csv file");
             System.out.println("Enter Your Choice");
             choice = scanner.nextInt();
             switch (choice) {
@@ -61,6 +63,12 @@ public class AddressBookMain {
                     break;
                 case 10:
                     addressBookFileIO.readData();
+                    break;
+                case 11:
+                    addressBookCSVFile.writeData();
+                    break;
+                case 12:
+                    addressBookCSVFile.readData();
                     break;
                 default:
                     System.out.println("Wrong choice");
